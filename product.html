@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> products</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* ================= HEADER ================= */
+         header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            border-bottom: 1px solid #ddd;
+            flex-wrap: wrap;
+            background-color: whitesmoke;
+        }
+
+
+        .logo {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        nav a {
+            margin: 0 12px;
+            text-decoration: none;
+            color: #444;
+            font-size: 13px;
+        }
+
+         .side-nav a {
+            border: 1px solid black;
+            color: black;
+            background-color: whitesmoke;
+            padding: 8px 10px;
+            border-radius: 4px;
+        }
+
+        .side-nav a:hover {
+            background-color: black;
+            color: white;
+        }
+        .actions button {
+            margin-left: 8px;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            background: #fff;
+            cursor: pointer;
+            font-size: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* ================= TITLE ================= */
+        .section-title {
+            text-align: center;
+            margin: 35px 0 8px;
+            font-size: 20px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .section-line {
+            width: 130px;
+            margin: 0 auto 20px;
+            border: 1px solid #ddd;
+        }
+
+        /* ================= FILTERS ================= */
+        .filters {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .filters button {
+            padding: 6px 12px;
+            margin: 4px;
+            border: 1px solid #ddd;
+            background: #fff;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        /* ================= PRODUCTS GRID ================= */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            padding: 0 50px 50px;
+        }
+
+        /* ================= PRODUCT CARD ================= */
+        .card {
+            border: 1px solid #eee;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            padding: 15px;
+            background: #fafafa;
+        }
+
+        .card-content {
+            padding: 14px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card h3 {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .card p {
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .price {
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .card-content div:last-child {
+            margin-top: auto;
+        }
+
+        .details-btn,
+        .cart-btn {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            font-size: 11px;
+            cursor: pointer;
+            margin: 3px;
+            border-radius: 2px;
+        }
+
+        .cart-btn {
+            background: #555;
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            text-align: center;
+            padding: 25px 0;
+            font-size: 14px;
+        }
+
+        footer span {
+            color: red;
+        }
+
+        footer a {
+            text-decoration: underline;
+            color: #000;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        /* Laptop */
+        @media(max-width:1024px) {
+            .products {
+                grid-template-columns: repeat(3, 1fr);
+                padding: 0 30px 40px;
+            }
+        }
+
+        /* Tablet */
+        @media(max-width:768px) {
+            header {
+                padding: 15px 20px;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 0 20px 35px;
+            }
+        }
+
+        /* Mobile */
+        @media(max-width:425px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            nav {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .actions {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .actions button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+                padding: 0 15px 30px;
+            }
+
+            .card img {
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header>
+        <div class="logo">Ecommerce</div>
+
+        <nav>
+            <a href="./home.html">Home</a>
+            <a href="./product.html">Products</a>
+            <a href="./About.html">About</a>
+            <a href="./contact.html">Contact</a>
+        </nav>
+
+         <nav class="side-nav">
+            <a href="./login.html"><i class="fa fa-right-to-bracket"></i>Login</a>
+            <a href="./register.html"><i class="fa fa-user-plus"></i>Register</a>
+            <a href="./cart.html"><i class="fa fa-cart-shopping"></i>Cart (<span id="cartCount">0</span>)</a>
+        </nav>
+    </header>
+
+    <!-- ================= TITLE ================= -->
+    <h2 class="section-title">Latest Products</h2>
+    <hr class="section-line">
+
+    <!-- ================= FILTERS ================= -->
+    <div class="filters">
+        <button>All</button>
+        <button>Men's Clothing</button>
+        <button>Women's Clothing</button>
+        <button>Jewelry</button>
+        <button>Electronics</button>
+    </div>
+
+    <!-- ================= PRODUCTS ================= -->
+    <div class="products">
+
+        <!-- 20 PRODUCTS -->
+        <!-- 1 -->
+        <div class="card"><img src="./Assests/81fPKd-2AYL._AC_SL1500_.jpg">
+            <div class="card-content">
+                <h3>Product 1</h3>
+                <p>Perfect for daily use</p>
+                <div class="price">$22.99</div>
+                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
+            </div>
+        </div>
+        <!-- 2 -->
+        <div class="card"><img src="./Assests/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg">
+            <div class="card-content">
+                <h3>Product 2</h3>
+                <p>Perfect for daily use</p>
+                <div class="price">$55.99</div>
+                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
+            </div>
+        </div>
+        <!-- 3 -->
+        <div class="card"><img src="./Assests/71li-ujtlUL._AC_UX679_.jpg">
+            <div class="card-content">
+                <h3>Product 3</h3>
+                <p>Perfect for daily use</p>
+                <div class="price">$55.99</div>
+                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
+            </div>
+        </div>
+        <!-- 4 -->
+        <div class="card"><img src="./Assests/71YXzeOuslL._AC_UY879_.jpg">
+            <div class="card-content">
+                <h3>Product 4</h3>
+                <p>Perfect for daily use</p>
+                <div class="price">$55.99</div>
+                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
+            </div>
+        </div>
+        <!-- 5 -->
+        <div class="card"><img src="./Assests/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg">
+            <div class="card-content">
+                <h3>Product 5</h3>
+                <p>Perfect for daily use</p>
+                <div class="price">$55.99</div>
+                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
+            </div>
+        </div>
+        <!-- 6 -->
+        <div class="card"><img src="./Assests/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg">
+            <div class="card-content">
+                <h3>Product 6</h3>
+                <p>Perfect for daily use</p>
+                <div class="price">$55.99</div>
+                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
+            </div>
+        </div>
+        <!-- 7 -->
+        <div class="card"><img src="./Assests/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg">
+            <div class="card-content">
+                <h3>Product 7</h3>
+                <p>Perfect for daily use</p>
+                <div class="price">$55.99</div>
+                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
+            </div>
+        </div>
+        <!-- 8 -->
+        <div class="card"><img src="./Assests/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg">
+            <div class="card-content">
+                <h3>Product 8</h3>
+                <p>Perfect for daily use</p>
+                <div class="price">$55.99</div>
+                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
+            </div>
+        </div>
+        <!-- 9 -->
+        <div class="card"><img src="./Assests/61IBBVJvSDL._AC_SY879_.jpg">
+            <div class="card-content">
+                <h3>Product 9</h3>
+                <p>Perfect for daily use</p>
+                <div class="price">$55.99</div>
+                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
+            </div>
+        </div>
+        <!-- 10 -->
+        <div class="card"><img src="./Assests/61U7T1koQqL._AC_SX679_.jpg">
+            <div class="card-content">
+                <h3>Product 10</h3>
+                <p>Perfect for daily use</p>
+                <div class="price">$55.99</div>
+                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
+            </div>
+        </div>
+        <!-- 11 -->
+        <div class="card"><img src="./Assests/71kWymZ+c+L._AC_SX679_.jpg">
+            <div class="card-content">
+                <h3>Product 11</h3>
+                <p>Perfect for daily use</p>
+                <div class="price">$55.99</div>
+                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
+            </div>
+        </div>
+        <!-- 12 -->
+        <div class="card"><img src="./Assests/61mtL65D4cL._AC_SX679_.jpg">
+            <div class="card-content">
+                <h3>Product 12</h3>
+                <p>Perfect for daily use</p>
+                <div class="price">$55.99</div>
+                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
+            </div>
+        </div>
+        <!-- 13 -->
+        <div class="card"><img src="./Assests/71kWymZ+c+L._AC_SX679_.jpg">
+            <div class="card-content">
+                <h3>Product 13</h3>
+                <p>Perfect for daily use</p>
+                <div class="price">$55.99</div>
+                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
+            </div>
+        </div>
+        <!-- 14 -->
+        <div class="card"><img src="./Assests/81Zt42ioCgL._AC_SX679_.jpg">
+            <div class="card-content">
+                <h3>Product 14</h3>
+                <p>Perfect for daily use</p>
+                <div class="price">$55.99</div>
+                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
+            </div>
+        </div>
+        <!-- 15 -->
+        <div class="card"><img src="./Assests/51Y5NI-I5jL._AC_UX679_.jpg">
+            <div class="card-content">
+                <h3>Product 15</h3>
+                <p>Perfect for daily use</p>
+                <div class="price">$55.99</div>
+                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
+            </div>
+        </div>
+        <!-- 16 -->
+        <div class="card"><img src="./Assests/81XH0e8fefL._AC_UY879_.jpg">
+            <div class="card-content">
+                <h3>Product 16</h3>
+                <p>Perfect for daily use</p>
+                <div class="price">$55.99</div>
+                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
+            </div>
+        </div>
+        <!-- 17 -->
+        <div class="card"><img src="./Assests/71HblAHs5xL._AC_UY879_-2.jpg">
+            <div class="card-content">
+                <h3>Product 17</h3>
+                <p>Perfect for daily use</p>
+                <div class="price">$55.99</div>
+                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
+            </div>
+        </div>
+        <!-- 18 -->
+        <div class="card"><img src="./Assests/71z3kpMAYsL._AC_UY879_.jpg">
+            <div class="card-content">
+                <h3>Product 18</h3>
+                <p>Perfect for daily use</p>
+                <div class="price">$55.99</div>
+                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
+            </div>
+        </div>
+        <!-- 19 -->
+        <div class="card"><img src="./Assests/51eg55uWmdL._AC_UX679_.jpg">
+            <div class="card-content">
+                <h3>Product 19</h3>
+                <p>Perfect for daily use</p>
+                <div class="price">$55.99</div>
+                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
+            </div>
+        </div>
+        <!-- 20 -->
+        <div class="card"><img src="./Assests/61pHAEJ4NML._AC_UX679_.jpg">
+            <div class="card-content">
+                <h3>Product 20</h3>
+                <p>Perfect for daily use</p>
+                <div class="price">$55.99</div>
+                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        Made with <span>❤</span> by <a href="#">Sameera</a>
+    </footer>
+
+</body>
+
+</html>

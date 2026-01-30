@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+ header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            border-bottom: 1px solid #ddd;
+            flex-wrap: wrap;
+            background-color: whitesmoke;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        nav a {
+            margin: 0 12px;
+            text-decoration: none;
+            color: gray;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: black;
+        }
+
+        nav a i {
+            margin-right: 5px;
+        }
+
+        .side-nav a {
+            border: 1px solid black;
+            color: black;
+            background-color: whitesmoke;
+            padding: 8px 10px;
+            border-radius: 4px;
+        }
+
+        .side-nav a:hover {
+            background-color: black;
+            color: white;
+        }
+
+        /* ===== PAGE CONTENT ===== */
+        h1 {
+            text-align: center;
+            margin: 40px 0 15px;
+        }
+
+        hr {
+            width: 60%;
+            margin: 0 auto 30px;
+            border: none;
+            border-top: 1px solid #ccc;
+        }
+
+        form {
+            max-width: 420px;
+            margin: 0 auto 50px;
+            padding: 0 10px;
+        }
+
+        label {
+            font-size: 14px;
+            color: #333;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        input {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 12px;
+            border: 1px solid #cfd8e3;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        form p a {
+            color: skyblue;
+        }
+
+        form button {
+            display: block;
+            margin: 20px auto 0;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 6px;
+            background-color: gray;
+            color: white;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 0;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+        }
+
+        footer span {
+            color: red;
+        }
+
+        footer a {
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <h1 class="logo">Ecommerce</h1>
+        <nav>
+            <a href="./home.html">Home</a>
+            <a href="./product.html">product</a>
+            <a href="./About.html">About</a>
+            <a href="./contact.html">Contact Us</a>
+        </nav>
+
+        <nav class="side-nav">
+            <a href="./login.html"><i class="fa fa-right-to-bracket"></i>Login</a>
+            <a href="./register.html"><i class="fa fa-user-plus"></i>Register</a>
+            <a href="./cart.html"><i class="fa fa-cart-shopping"></i>Cart (<span id="cartCount">0</span>)</a>
+        </nav>
+    </header>
+
+    <h1 style="text-align: center;margin: 30px;">Register</h1>
+    <hr>
+    <form>
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter Your Name">
+        <br>
+        <label>Email address</label>
+        <input type="email" placeholder="name@example.com">
+        <br>
+        <label>Password</label>
+        <input type="password" placeholder="password">
+
+        <p>New Here? <a href="./login.html">Login</a></p>
+        <br>
+
+        <button>Register</button>
+
+    </form>
+
+    <footer>
+        Made with <span>❤</span> by <a href="#">Sameera</a>
+    </footer>
+
+</body>
+
+</html>

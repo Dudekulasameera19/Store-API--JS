@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            border-bottom: 1px solid #ddd;
+            flex-wrap: wrap;
+            background-color: whitesmoke;
+        }
+
+
+        .logo {
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        nav a {
+            margin: 0 12px;
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+        }
+         .side-nav a {
+            border: 1px solid black;
+            color: black;
+            background-color: whitesmoke;
+            padding: 8px 10px;
+            border-radius: 4px;
+        }
+
+        .side-nav a:hover{
+            background-color: black;
+            color: white;
+        }
+
+        .actions button {
+            margin-left: 8px;
+            padding: 6px 14px;
+            border: 1px solid #ccc;
+            background: #fff;
+            cursor: pointer;
+            font-size: 13px;
+            border-radius: 5px;
+        }
+
+        .about {
+            text-align: center;
+            padding: 60px 80px;
+        }
+
+        .about h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .about hr {
+            width: 120px;
+            margin: 15px auto 30px;
+            border: 1px solid #ddd;
+        }
+
+        .about p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .products-section {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .products-section h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            padding: 15px;
+            font-size: 18px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 0;
+            font-size: 14px;
+        }
+
+        footer span {
+            color: red;
+        }
+
+        footer a {
+            text-decoration: underline;
+            color: #000;
+        }
+
+        /* Laptop */
+        @media (max-width:1024px) {
+            .products {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Tablet */
+        @media (max-width:768px) {
+            header {
+                flex-wrap: wrap;
+                gap: 15px;
+                padding: 15px 25px;
+            }
+
+            .about {
+                padding: 40px 30px;
+            }
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Mobile */
+        @media (max-width:425px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            nav {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .actions {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .actions button {
+                width: 100%;
+            }
+
+            .about h2 {
+                font-size: 28px;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">Ecommerce</div>
+
+        <nav>
+            <a href="./home.html">Home</a>
+            <a href="./product.html">Products</a>
+            <a href="./About.html">About</a>
+            <a href="./contact.html">Contact</a>
+        </nav>
+
+      <nav class="side-nav">
+            <a href="./login.html"><i class="fa fa-right-to-bracket"></i>Login</a>
+            <a href="./register.html"><i class="fa fa-user-plus"></i>Register</a>
+            <a href="./cart.html"><i class="fa fa-cart-shopping"></i>Cart (<span id="cartCount">0</span>)</a>
+        </nav>
+    </header>
+
+    <!-- ABOUT US -->
+    <section class="about">
+        <h2>About Us</h2>
+        <hr>
+
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, recusandae? Officia voluptatum
+            consequatur ipsa repudiandae, blanditiis ipsum nihil a sit harum sint modi molestias illo totam non quos nam
+            omnis.
+            Itaque quo delectus, minus fugit molestiae ea nesciunt iure quis ratione doloremque, explicabo praesentium
+            officiis, atque nisi cum est? Natus excepturi veritatis placeat id architecto doloribus dolor nisi ipsam
+            eius.
+            Magni quos, ratione porro explicabo cupiditate accusamus alias ipsum voluptatum eos eius quis sequi facilis
+            nihil numquam fuga labore unde eaque temporibus iure ut sint soluta! Ullam ipsum nobis repellendus.
+            Eius consequatur veritatis magni dolores libero blanditiis itaque animi, neque ratione vitae adipisci
+            eligendi numquam officiis iste dignissimos ipsa inventore provident rerum amet distinctio dolor impedit
+            laborum fugiat. Illo, expedita!
+            Natus quaerat, est nulla porro nesciunt aspernatur odit excepturi at, ipsa blanditiis nisi dolor totam
+            aliquid ab, maiores fugit cum eveniet ducimus enim eius nihil eligendi id saepe accusantium! Qui?
+            Nobis vitae, non vero quia saepe recusandae, aut mollitia, est architecto aliquam impedit eos expedita
+            cumque doloremque ratione totam similique quo ad vel laboriosam aliquid minima suscipit. Consectetur,
+            nostrum tempore.
+            Asperiores dolore, optio a tempore soluta possimus dignissimos quisquam, dolorum, exercitationem quasi ea
+            officiis ad nulla at quos dolorem voluptas. Sapiente tempore voluptatibus beatae, animi temporibus maxime
+            doloremque at a.
+        </p>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="products-section">
+        <h2>Our Products</h2>
+
+        <div class="products">
+            <div class="card">
+                <img src="./Assests/pexels-photo-1--298863.jpeg" alt="">
+                <h3>Men's Clothing</h3>
+            </div>
+
+            <div class="card">
+                <img src="./Assests/pexels-photo-2--7679720.jpeg" alt="">
+                <h3>Women's Clothing</h3>
+            </div>
+
+            <div class="card">
+                <img src="./Assests/pexels-photo-3--1927259.webp" alt="">
+                <h3>Jewelry</h3>
+            </div>
+
+            <div class="card">
+                <img src="./Assests/pexels-photo-4--356056.jpeg" alt="">
+                <h3>Electronics</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        Made with <span>❤</span> by <a href="#">Sameera</a>
+    </footer>
+
+</body>
+
+</html>
