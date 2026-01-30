@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            border-bottom: 1px solid #ddd;
+            flex-wrap: wrap;
+            background-color: whitesmoke;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        nav a {
+            margin: 0 12px;
+            text-decoration: none;
+            color: gray;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: black;
+        }
+
+        nav a i {
+            margin-right: 5px;
+        }
+
+        .side-nav a {
+            border: 1px solid black;
+            color: black;
+            background-color: whitesmoke;
+            padding: 8px 10px;
+            border-radius: 4px;
+        }
+
+        .side-nav a:hover {
+            background-color: black;
+            color: white;
+        }
+
+        /* ===== banner ===== */
+        .banner {
+            height: 350px;
+            background: url("./Assests/main.png\ \(1\).jpg") center / cover no-repeat;
+            display: flex;
+            align-items: center;
+            padding-left: 80px;
+            color: white;
+        }
+
+        .banner-content {
+            padding: 25px;
+            max-width: 600px;
+        }
+
+        /* ===== TITLE ===== */
+        .section-title {
+            text-align: center;
+            margin: 40px 0 10px;
+            font-size: 35px;
+        }
+
+        .section-line {
+            width: 140px;
+            margin: 0 auto 25px;
+            border: 1px solid white;
+        }
+
+        /* ===== FILTER ===== */
+        .filters {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .filters button {
+            padding: 6px 14px;
+            margin: 5px;
+            border: 1px solid white;
+            background: white;
+            cursor: pointer;
+
+        }
+
+        .filters a {
+            padding: 6px 14px;
+            margin: 5px;
+            border: 1px solid black;
+            background: whitesmoke;
+            text-decoration: none;
+            color: black;
+            display: inline-block;
+            border-radius: 4px;
+        }
+
+        .filters a:hover {
+            background-color: black;
+            color: white;
+        }
+
+        /* ===== PRODUCTS ===== */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(3, 300px);
+            gap: 25px;
+            padding: 0 60px 50px;
+            justify-content: center;
+        }
+
+        .card {
+            border: 1px solid gray;
+            display: flex;
+            flex-direction: column;
+            border-radius: 8px;
+        }
+
+        .card img {
+            width: 100%;
+            height: 240px;
+            object-fit: contain;
+            background: white;
+            padding: 10px;
+        }
+
+        .card-content {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .card h3 {
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .price {
+            font-weight: bold;
+            margin: 6px 0;
+        }
+
+        .card button {
+            background: black;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 7px 14px;
+            font-size: 13px;
+            cursor: pointer;
+            margin: 4px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 25px 0;
+            font-size: 14px;
+        }
+
+        footer span {
+            color: red;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 0 20px;
+            }
+        }
+
+        @media (max-width: 425px) {
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1 class="logo">Ecommerce</h1>
+        <nav>
+            <a href="./home.html">Home</a>
+            <a href="./product.html">product</a>
+            <a href="./About.html">About</a>
+            <a href="./contact.html">Contact Us</a>
+        </nav>
+
+        <nav class="side-nav">
+            <a href="./login.html"><i class="fa fa-right-to-bracket"></i>Login</a>
+            <a href="./register.html"><i class="fa fa-user-plus"></i>Register</a>
+            <a href="./cart.html"><i class="fa fa-cart-shopping"></i>Cart (<span id="cartCount">0</span>)</a>
+        </nav>
+    </header>
+
+    <!--  banner text-->
+    <section class="banner">
+        <div class="banner-content">
+            <h1>New Season Arrivals</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium maxime consectetur asperiores ducimus
+                nesciunt alias.</p>
+        </div>
+    </section>
+
+    <h2 class="section-title">Latest Products</h2>
+    <hr class="section-line">
+
+    <!-- FILTERS -->
+    <div class="filters">
+        <a href="#all" class="filters1">All</a>
+        <a href="#men" class="filters1">Men</a>
+        <a href="#women" class="filters1">Women</a>
+        <a href="#electronics" class="filters1">Electronics</a>
+        <a href="#jewellery" class="filters1">Jewellery</a>
+    </div>
+
+    <!-- PRODUCTS -->
+    <div class="products" id="productList"></div>
+
+    <footer>
+        Made with <span>❤</span> by <a href="#">Sameera</a>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
