@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 30px;
+        }
+
+        .cart-container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 20px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+
+        .cart-item img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+        }
+
+        .cart-details h3 {
+            font-size: 14px;
+        }
+
+        .price {
+            font-weight: bold;
+            margin: 8px 0;
+        }
+
+        button {
+            background: black;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="cart-container">
+    <h2>Your Cart</h2>
+    <div id="cartItems"></div>
+    <h3 id="totalPrice"></h3>
+</div>
+
+<script src="cart.js"></script>
+</body>
+</html>

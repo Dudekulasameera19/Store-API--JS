@@ -1,74 +1,93 @@
-const productList = document.getElementById("productList");
-const cartCount = document.getElementById("cartCount");
+document.addEventListener("DOMContentLoaded", () => {
 
-let allProducts = [];
-let cart = [];
+    const productList = document.getElementById("productList");
+    const cartCount = document.getElementById("cartCount");
 
-async function initProducts() {
-    const res = await fetch("https://fakestoreapi.com/products");
-    allProducts = await res.json();
-    handleRoute(); 
-}
+    let allProducts = [];
 
-function handleRoute() {
-    const hash = window.location.hash.replace("#", "");
-
-    switch (hash) {
-        case "men":
-            filterCategory("men's clothing");
-            break;
-        case "women":
-            filterCategory("women's clothing");
-            break;
-        case "electronics":
-            filterCategory("electronics");
-            break;
-        case "jewellery":
-            filterCategory("jewelery");
-            break;
-        default:
-            displayProducts(allProducts); 
+    function loadCartCount() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        if (cartCount) {
+            cartCount.innerText = cart.length;
+        }
     }
-}
 
-function filterCategory(category) {
-    const filtered = allProducts.filter(
-        product => product.category === category
-    );
-    displayProducts(filtered);
-}
+    async function initProducts() {
+        try {
+            const res = await fetch("https://fakestoreapi.com/products");
+            allProducts = await res.json();
+            handleRoute();
+            loadCartCount();
+        } catch (error) {
+            console.log("Error loading products", error);
+        }
+    }
 
+    function handleRoute() {
+        const hash = window.location.hash.replace("#", "");
 
-function displayProducts(products) {
-    productList.innerHTML = "";
+        if (hash === "men") {
+            filterCategory("men's clothing");
+        } else if (hash === "women") {
+            filterCategory("women's clothing");
+        } else if (hash === "electronics") {
+            filterCategory("electronics");
+        } else if (hash === "jewellery") {
+            filterCategory("jewelery");
+        } else {
+            displayProducts(allProducts);
+        }
+    }
 
-    products.forEach(product => {
-        const card = document.createElement("div");
-        card.className = "card";
+    window.addEventListener("hashchange", handleRoute);
 
-        card.innerHTML = `
-            <img src="${product.image}">
-            <div class="card-content">
-                <h3>${product.title}...</h3>
-                <hr>
-                <div class="price">${product.price}</div>
-                <hr>
-                <button onclick="Details()">Details</button>
-                <button onclick="addToCart()">Add to Cart</button>
-            </div>
-        `;
+    function filterCategory(category) {
+        const filteredProducts = allProducts.filter(item => {
+            return item.category === category;
+        });
 
-        productList.appendChild(card);
-    });
-}
+        displayProducts(filteredProducts);
+    }
 
+    function displayProducts(products) {
+        if (!productList) return;
 
-function addToCart() {
-    cart.push(1);
-    cartCount.innerText = cart.length;
-}
+        productList.innerHTML = "";
 
+        products.forEach(product => {
+            const card = document.createElement("div");
+            card.className = "card";
 
-window.addEventListener("hashchange", handleRoute);
+            card.innerHTML = `
+                <img src="${product.image}" alt="">
+                <div class="card-content">
+                    <h3>${product.title.slice(0, 40)}...</h3>
+                    <hr>
+                    <div class="price">$${product.price}</div>
+                    <hr>
+                    <button class="details-btn">Details</button>
+                    <button class="cart-btn">Add to Cart</button>
+                </div>
+            `;
 
-initProducts();
+            const cartBtn = card.querySelector(".cart-btn");
+            cartBtn.addEventListener("click", () => {
+                addToCart(product.id);
+            });
+
+            productList.appendChild(card);
+        });
+    }
+
+    function addToCart(productId) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        const selectedProduct = allProducts.find(p => p.id === productId);
+        cart.push(selectedProduct);
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        loadCartCount();
+    }
+
+    initProducts();
+});
