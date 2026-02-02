@@ -13,13 +13,13 @@
             box-sizing: border-box;
             font-family: Arial, sans-serif;
         }
- header {
+
+        header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -62,10 +62,18 @@
             color: white;
         }
 
-        /* ===== PAGE CONTENT ===== */
+        /* ===== REGISTER PAGE CENTERING ===== */
+        .register-container {
+            min-height: calc(100vh - 140px);
+            margin-top: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
         h1 {
             text-align: center;
-            margin: 40px 0 15px;
+            margin-bottom: 15px;
         }
 
         hr {
@@ -128,16 +136,16 @@
             text-decoration: none;
         }
     </style>
-
 </head>
 
 <body>
+
     <!-- HEADER -->
     <header>
         <h1 class="logo">Ecommerce</h1>
         <nav>
             <a href="./home.html">Home</a>
-            <a href="./product.html">product</a>
+            <a href="./product.html">Product</a>
             <a href="./About.html">About</a>
             <a href="./contact.html">Contact Us</a>
         </nav>
@@ -149,25 +157,28 @@
         </nav>
     </header>
 
-    <h1 style="text-align: center;margin: 30px;">Register</h1>
-    <hr>
-    <form>
-        <label>Full Name</label>
-        <input type="text" placeholder="Enter Your Name">
-        <br>
-        <label>Email address</label>
-        <input type="email" placeholder="name@example.com">
-        <br>
-        <label>Password</label>
-        <input type="password" placeholder="password">
+    <!-- REGISTER CONTENT -->
+    <div class="register-container">
+        <h1>Register</h1>
+        <hr>
 
-        <p>New Here? <a href="./login.html">Login</a></p>
-        <br>
+        <form>
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter Your Name">
 
-        <button>Register</button>
+            <label>Email address</label>
+            <input type="email" placeholder="name@example.com">
 
-    </form>
+            <label>Password</label>
+            <input type="password" placeholder="password">
 
+            <p>Already have an account? <a href="./login.html">Login</a></p>
+
+            <button>Register</button>
+        </form>
+    </div>
+
+    <!-- FOOTER -->
     <footer>
         Made with <span>❤</span> by <a href="#">Sameera</a>
     </footer>
