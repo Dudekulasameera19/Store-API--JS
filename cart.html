@@ -1,60 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Cart</title>
+
     <style>
         body {
-            font-family: Arial;
-            padding: 30px;
+            font-family: Arial, sans-serif;
+            background: #f6f6f6;
+            padding: 120px 40px 40px;
         }
 
-        .cart-container {
-            max-width: 900px;
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .cart-wrapper {
+            max-width: 1200px;
             margin: auto;
+            display: flex;
+            gap: 30px;
+        }
+
+        .cart-left {
+            flex: 2;
+            background: #fff;
+            border-radius: 6px;
+            padding: 20px;
+        }
+
+        .cart-left h3 {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
         }
 
         .cart-item {
             display: flex;
-            gap: 20px;
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin-bottom: 15px;
             align-items: center;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
         }
 
         .cart-item img {
-            width: 120px;
-            height: 120px;
+            width: 90px;
+            height: 90px;
             object-fit: contain;
         }
 
-        .cart-details h3 {
+        .item-info {
+            flex: 1;
+        }
+
+        .item-info h4 {
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .item-price {
+            font-weight: bold;
             font-size: 14px;
         }
 
-        .price {
-            font-weight: bold;
-            margin: 8px 0;
+        .qty {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        button {
-            background: black;
-            color: white;
+        .qty button {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ccc;
+            background: #fff;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .cart-right {
+            flex: 1;
+            background: #fff;
+            border-radius: 6px;
+            padding: 20px;
+            height: fit-content;
+        }
+
+        .cart-right h3 {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        .summary-total {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 12px;
+            background: #222;
+            color: #fff;
             border: none;
-            padding: 6px 12px;
+            margin-top: 20px;
             cursor: pointer;
         }
     </style>
 </head>
+
 <body>
 
-<div class="cart-container">
-    <h2>Your Cart</h2>
-    <div id="cartItems"></div>
-    <h3 id="totalPrice"></h3>
-</div>
+    <h1>Cart</h1>
 
-<script src="cart.js"></script>
+    <div class="cart-wrapper">
+
+        <div class="cart-left">
+            <h3>Item List</h3>
+            <div id="cartItems"></div>
+        </div>
+
+        <div class="cart-right">
+            <h3>Order Summary</h3>
+
+            <div class="summary-row">
+                <span>Products (<span id="itemCount">0</span>)</span>
+                <span id="productsTotal">$0</span>
+            </div>
+
+            <div class="summary-row">
+                <span>Shipping</span>
+                <span>$30</span>
+            </div>
+
+            <hr>
+
+            <div class="summary-row summary-total">
+                <span>Total amount</span>
+                <span id="grandTotal">$0</span>
+            </div>
+
+            <button class="checkout-btn">Go to checkout</button>
+        </div>
+
+    </div>
+
+    <script src="cart.js"></script>
 </body>
+
 </html>
