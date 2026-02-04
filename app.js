@@ -7,8 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function loadCartCount() {
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let totalQty = 0;
+
+        cart.forEach(item => {
+            totalQty += item.qty;
+        });
+
         if (cartCount) {
-            cartCount.innerText = cart.length;
+            cartCount.innerText = totalQty;
         }
     }
 
@@ -19,10 +25,11 @@ document.addEventListener("DOMContentLoaded", () => {
             handleRoute();
             loadCartCount();
         } catch (error) {
-            console.log("Error loading products", error);
+            console.error("Error loading products:", error);
         }
     }
 
+    /* ================= ROUTING (FILTERS) ================= */
     function handleRoute() {
         const hash = window.location.hash.replace("#", "");
 
@@ -42,13 +49,13 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("hashchange", handleRoute);
 
     function filterCategory(category) {
-        const filteredProducts = allProducts.filter(item => {
-            return item.category === category;
-        });
-
+        const filteredProducts = allProducts.filter(
+            product => product.category === category
+        );
         displayProducts(filteredProducts);
     }
 
+    /* ================= DISPLAY PRODUCTS ================= */
     function displayProducts(products) {
         if (!productList) return;
 
@@ -59,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
             card.className = "card";
 
             card.innerHTML = `
-                <img src="${product.image}" alt="">
+                <img src="${product.image}" alt="${product.title}">
                 <div class="card-content">
                     <h3>${product.title.slice(0, 40)}...</h3>
                     <hr>
@@ -70,24 +77,39 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             `;
 
-            const cartBtn = card.querySelector(".cart-btn");
-            cartBtn.addEventListener("click", () => {
-                addToCart(product.id);
+            card.querySelector(".cart-btn").addEventListener("click", () => {
+                addToCart(product);
             });
 
             productList.appendChild(card);
         });
     }
 
-    function addToCart(productId) {
+    /* ================= ADD TO CART ================= */
+    function addToCart(product) {
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-        const selectedProduct = allProducts.find(p => p.id === productId);
-        cart.push(selectedProduct);
+        const existingProduct = cart.find(item => item.id === product.id);
+
+        if (existingProduct) {
+            existingProduct.qty += 1;
+        } else {
+            cart.push({
+                id: product.id,
+                title: product.title,
+                price: product.price,
+                image: product.image,
+                qty: 1
+            });
+        }
 
         localStorage.setItem("cart", JSON.stringify(cart));
         loadCartCount();
+
+        // ✅ redirect to cart page
+        window.location.href = "cart.html";
     }
 
+    /* ================= INIT ================= */
     initProducts();
 });

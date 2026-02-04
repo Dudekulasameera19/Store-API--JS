@@ -23,36 +23,47 @@
             top: 0;
             left: 0;
             width: 100%;
+            background-color: whitesmoke;
+            border-bottom: 1px solid #ddd;
             z-index: 1000;
+        }
 
+        .header-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 60px;
-            border-bottom: 1px solid #ddd;
             flex-wrap: wrap;
-            background-color: whitesmoke;
         }
-
 
         .logo {
             font-size: 22px;
-            font-weight: 600;
+            font-weight: bold;
         }
 
-        nav a {
+        nav.main-nav a {
             margin: 0 12px;
-            text-decoration: none;
-            color: #444;
+            text-decoration: none; /* remove underline */
+            color: gray;
             font-size: 14px;
         }
 
+        nav.main-nav a:hover {
+            color: black;
+        }
+
         .side-nav a {
+            text-decoration: none; /* remove underline */
             border: 1px solid black;
             color: black;
             background-color: whitesmoke;
-            padding: 8px 10px;
+            padding: 7px 10px;
             border-radius: 4px;
+            margin-left: 6px;
+            font-size: 13px;
+            white-space: nowrap;
         }
 
         .side-nav a:hover {
@@ -60,22 +71,9 @@
             color: white;
         }
 
-        .actions button {
-            margin-left: 8px;
-            padding: 7px 14px;
-            border: 1px solid #ccc;
-            background: #fff;
-            cursor: pointer;
-            font-size: 13px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            border-radius: 6px;
-        }
-
         /* ================= CONTACT SECTION ================= */
         .contact {
-            padding: 60px 20px;
+            padding: 180px 20px 60px; /* top padding for fixed header */
             text-align: center;
         }
 
@@ -91,7 +89,6 @@
             border: 1px solid #ddd;
         }
 
-        /* ================= FORM ================= */
         form {
             max-width: 420px;
             margin: 0 auto;
@@ -142,39 +139,31 @@
         }
 
         footer a {
-            text-decoration: underline;
-            color: #000;
+            text-decoration: none; /* removed underline */
+            color: black;
         }
 
         /* ================= RESPONSIVE ================= */
-
-        /* Laptop */
-        @media(max-width:1024px) {
-            header {
-                padding: 16px 30px;
-            }
-
+        @media (max-width: 1024px) {
             .contact h2 {
                 font-size: 32px;
             }
         }
 
-        /* Tablet */
-        @media(max-width:768px) {
-            header {
+        @media (max-width: 768px) {
+            header .header-container {
                 flex-wrap: wrap;
                 gap: 12px;
-                padding: 14px 20px;
             }
 
-            nav {
+            nav.main-nav {
                 width: 100%;
                 display: flex;
                 justify-content: center;
                 gap: 12px;
             }
 
-            .actions {
+            .side-nav {
                 width: 100%;
                 display: flex;
                 justify-content: center;
@@ -182,7 +171,7 @@
             }
 
             .contact {
-                padding: 50px 15px;
+                padding: 150px 15px 40px;
             }
 
             form {
@@ -190,28 +179,22 @@
             }
         }
 
-        /* Mobile */
-        @media(max-width:425px) {
-            header {
+        @media (max-width: 425px) {
+            header .header-container {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 10px;
             }
 
-            nav {
+            nav.main-nav {
                 flex-direction: column;
                 gap: 6px;
             }
 
-            .actions {
-                width: 100%;
+            .side-nav {
                 flex-direction: column;
                 gap: 8px;
-            }
-
-            .actions button {
                 width: 100%;
-                justify-content: center;
             }
 
             .contact h2 {
@@ -233,20 +216,22 @@
 
     <!-- ================= HEADER ================= -->
     <header>
-        <div class="logo">Ecommerce</div>
+        <div class="header-container">
+            <div class="logo">Ecommerce</div>
 
-        <nav>
-            <a href="./home.html">Home</a>
-            <a href="./product.html">Products</a>
-            <a href="./About.html">About</a>
-            <a href="./contact.html">Contact</a>
-        </nav>
+            <nav class="main-nav">
+                <a href="./home.html">Home</a>
+                <a href="./product.html">Products</a>
+                <a href="./about.html">About</a>
+                <a href="./contact.html">Contact</a>
+            </nav>
 
-        <nav class="side-nav">
-            <a href="./login.html"><i class="fa fa-right-to-bracket"></i>Login</a>
-            <a href="./register.html"><i class="fa fa-user-plus"></i>Register</a>
-            <a href="./cart.html"><i class="fa fa-cart-shopping"></i>Cart (<span id="cartCount">0</span>)</a>
-        </nav>
+            <div class="side-nav">
+                <a href="./login.html"><i class="fa fa-right-to-bracket"></i>Login</a>
+                <a href="./register.html"><i class="fa fa-user-plus"></i>Register</a>
+                <a href="./cart.html"><i class="fa fa-cart-shopping"></i>Cart (<span id="cartCount">0</span>)</a>
+            </div>
+        </div>
     </header>
 
     <!-- ================= CONTACT ================= -->

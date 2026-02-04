@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Cart</title>
@@ -14,13 +13,30 @@
 
         h1 {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        .empty-cart {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 80px 20px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .continue-btn {
+            display: inline-block;
+            padding: 10px 22px;
+            border: 1px solid #222;
+            color: #222;
+            text-decoration: none;
         }
 
         .cart-wrapper {
             max-width: 1200px;
             margin: auto;
-            display: flex;
+            display: none;
             gap: 30px;
         }
 
@@ -31,10 +47,12 @@
             padding: 20px;
         }
 
-        .cart-left h3 {
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+        .cart-right {
+            flex: 1;
+            background: #fff;
+            border-radius: 6px;
+            padding: 20px;
+            height: fit-content;
         }
 
         .cart-item {
@@ -46,64 +64,15 @@
         }
 
         .cart-item img {
-            width: 90px;
-            height: 90px;
+            width: 80px;
+            height: 80px;
             object-fit: contain;
         }
 
-        .item-info {
-            flex: 1;
-        }
-
-        .item-info h4 {
-            font-size: 14px;
-            margin-bottom: 6px;
-        }
-
-        .item-price {
-            font-weight: bold;
-            font-size: 14px;
-        }
-
-        .qty {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
         .qty button {
-            width: 30px;
-            height: 30px;
-            border: 1px solid #ccc;
-            background: #fff;
+            padding: 4px 8px;
+            margin: 0 5px;
             cursor: pointer;
-            font-size: 18px;
-        }
-
-        .cart-right {
-            flex: 1;
-            background: #fff;
-            border-radius: 6px;
-            padding: 20px;
-            height: fit-content;
-        }
-
-        .cart-right h3 {
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-        }
-
-        .summary-row {
-            display: flex;
-            justify-content: space-between;
-            margin: 10px 0;
-            font-size: 14px;
-        }
-
-        .summary-total {
-            font-weight: bold;
-            font-size: 18px;
         }
 
         .checkout-btn {
@@ -120,41 +89,38 @@
 
 <body>
 
-    <h1>Cart</h1>
+<h1>Cart</h1>
 
-    <div class="cart-wrapper">
+<!-- EMPTY CART -->
+<div class="empty-cart" id="emptyCart">
+    <h2>Your Cart is Empty</h2>
+    <a href="home.html" class="continue-btn">← Continue Shopping</a>
+</div>
 
-        <div class="cart-left">
-            <h3>Item List</h3>
-            <div id="cartItems"></div>
-        </div>
+<!-- CART WITH ITEMS -->
+<div class="cart-wrapper" id="cartWrapper">
 
-        <div class="cart-right">
-            <h3>Order Summary</h3>
-
-            <div class="summary-row">
-                <span>Products (<span id="itemCount">0</span>)</span>
-                <span id="productsTotal">$0</span>
-            </div>
-
-            <div class="summary-row">
-                <span>Shipping</span>
-                <span>$30</span>
-            </div>
-
-            <hr>
-
-            <div class="summary-row summary-total">
-                <span>Total amount</span>
-                <span id="grandTotal">$0</span>
-            </div>
-
-            <button class="checkout-btn">Go to checkout</button>
-        </div>
-
+    <div class="cart-left">
+        <h3>Item List</h3>
+        <div id="cartItems"></div>
     </div>
 
-    <script src="cart.js"></script>
-</body>
+    <div class="cart-right">
+        <h3>Order Summary</h3>
 
+        <p>Products (<span id="itemCount">0</span>)</p>
+        <p>Total: <strong id="productsTotal">$0</strong></p>
+
+        <hr>
+
+        <h3>Grand Total</h3>
+        <h2 id="grandTotal">$0</h2>
+
+        <button class="checkout-btn">Go to Checkout</button>
+    </div>
+
+</div>
+
+<script src="cart.js"></script>
+</body>
 </html>

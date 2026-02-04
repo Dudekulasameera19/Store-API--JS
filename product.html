@@ -2,380 +2,242 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>product</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    /* ---------- HEADER ---------- */
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: whitesmoke;
+        border-bottom: 1px solid #ddd;
+        z-index: 1000;
+    }
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+    .header-container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
 
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: whitesmoke;
-            border-bottom: 1px solid #ddd;
-            z-index: 1000;
-            padding: 20px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .logo {
+        font-size: 22px;
+        font-weight: bold;
+    }
 
-        .logo {
-            font-size: 20px;
-            font-weight: 600;
-        }
+    nav.main-nav a {
+        text-decoration: none;
+        color: gray;
+        margin: 0 12px;
+        font-size: 14px;
+    }
 
-        nav a {
-            margin: 0 12px;
-            text-decoration: none;
-            color: #444;
-            font-size: 13px;
-        }
+    nav.main-nav a:hover {
+        color: black;
+    }
 
-        .side-nav a {
-            border: 1px solid black;
-            padding: 8px 10px;
-            border-radius: 4px;
-            text-decoration: none;
-            color: black;
-        }
+    .side-nav a {
+        text-decoration: none; /* remove underline */
+        border: 1px solid black;
+        color: black;
+        background-color: whitesmoke;
+        padding: 7px 10px;
+        border-radius: 4px;
+        margin-left: 6px;
+        white-space: nowrap;
+        font-size: 13px;
+    }
 
-        .side-nav a:hover {
-            background: black;
-            color: white;
-        }
+    .side-nav a:hover {
+        background-color: black;
+        color: white;
+    }
 
-        .section-title {
-            margin-top: 120px;
-            text-align: center;
-            font-size: 20px;
-            color: #555;
-        }
+    /* ===== TITLE ===== */
+    .section-title {
+        text-align: center;
+        margin: 180px 0 10px; /* margin-top accounts for fixed header */
+        font-size: 35px;
+    }
 
-        .section-line {
-            width: 130px;
-            margin: 8px auto 20px;
-            border: 1px solid #ddd;
-        }
+    .section-line {
+        width: 140px;
+        margin: 0 auto 25px;
+        border: 1px solid white;
+    }
 
-        .filters {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+    /* ===== FILTERS ===== */
+    .filters {
+        text-align: center;
+        margin-bottom: 30px;
+    }
 
-        .filters button {
-            padding: 6px 12px;
-            border: 1px solid #ddd;
-            background: #fff;
-            font-size: 12px;
-            cursor: pointer;
-            margin: 4px;
-        }
+    .filters a {
+        padding: 6px 14px;
+        margin: 5px;
+        border: 1px solid black;
+        background: whitesmoke;
+        text-decoration: none;
+        color: black;
+        display: inline-block;
+        border-radius: 4px;
+    }
 
-        .filters button:hover {
-            background: black;
-            color: white;
-        }
+    .filters a:hover {
+        background-color: black;
+        color: white;
+    }
 
-        /* CARD WIDTH REDUCED HERE */
+    /* ===== PRODUCTS ===== */
+    .products {
+        display: grid;
+        grid-template-columns: repeat(3, 300px);
+        gap: 25px;
+        padding: 0 60px 50px;
+        justify-content: center;
+    }
+
+    .card {
+        border: 1px solid gray;
+        display: flex;
+        flex-direction: column;
+        border-radius: 8px;
+    }
+
+    .card img {
+        width: 100%;
+        height: 240px;
+        object-fit: contain;
+        background: white;
+        padding: 10px;
+    }
+
+    .card-content {
+        padding: 15px;
+        text-align: center;
+    }
+
+    .card h3 {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+
+    .price {
+        font-weight: bold;
+        margin: 6px 0;
+    }
+
+    .card button {
+        background: black;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 7px 14px;
+        font-size: 13px;
+        cursor: pointer;
+        margin: 4px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+        text-align: center;
+        padding: 25px 0;
+        font-size: 14px;
+    }
+
+    footer a {
+        color: black;
+    }
+
+    footer span {
+        color: red;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
         .products {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-            padding: 0 40px 50px;
+            grid-template-columns: repeat(2, 1fr);
+            padding: 0 20px;
+        }
+    }
+
+    @media (max-width: 425px) {
+        .products {
+            grid-template-columns: 1fr;
         }
 
-        .card {
-            border: 1px solid #e5e5e5;
-            background: #fff;
-            display: flex;
+        .header-container {
             flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
         }
 
-        .card img {
-            width: 100%;
-            height: 140px;
-            object-fit: contain;
-            padding: 10px;
-        }
-
-        .card-content {
-            padding: 10px;
-            text-align: center;
+        nav.main-nav,
+        .side-nav {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 6px;
         }
-
-        .card h3 {
-            font-size: 13px;
-            margin-bottom: 4px;
-        }
-
-        .card p {
-            font-size: 11px;
-            color: #666;
-            margin-bottom: 5px;
-        }
-
-        .price {
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-
-        .card-content div:last-child {
-            margin-top: auto;
-        }
-
-        .details-btn,
-        .cart-btn {
-            padding: 4px 8px;
-            font-size: 11px;
-            border: none;
-            cursor: pointer;
-            margin: 2px;
-            color: #fff;
-        }
-
-        .details-btn {
-            background: #333;
-        }
-
-        .cart-btn {
-            background: #555;
-        }
-
-        footer {
-            text-align: center;
-            padding: 25px 0;
-            font-size: 14px;
-        }
-    </style>
+    }
+</style>
 </head>
 
 <body>
 
-    <header>
+<header>
+    <div class="header-container">
         <div class="logo">Ecommerce</div>
 
-        <nav>
+        <nav class="main-nav">
             <a href="./home.html">Home</a>
-            <a href="./product.html">Products</a>
-            <a href="./About.html">About</a>
+            <a href="./product.html">Product</a>
+            <a href="./about.html">About</a>
             <a href="./contact.html">Contact</a>
         </nav>
 
-        <nav class="side-nav">
-            <a href="./login.html">Login</a>
-            <a href="./register.html">Register</a>
-            <a href="./cart.html">Cart (0)</a>
-        </nav>
-    </header>
-
-    <h2 class="section-title">Latest Products</h2>
-    <hr class="section-line">
-
-    <div class="filters">
-        <button>All</button>
-        <button>Men's Clothing</button>
-        <button>Women's Clothing</button>
-        <button>Jewelry</button>
-        <button>Electronics</button>
+        <div class="side-nav">
+            <a href="./login.html"><i class="fa fa-right-to-bracket"></i>Login</a>
+            <a href="./register.html"><i class="fa fa-user-plus"></i>Register</a>
+            <a href="./cart.html"><i class="fa fa-cart-shopping"></i>Cart (<span id="cartCount">0</span>)</a>
+        </div>
     </div>
+</header>
 
-    <div class="products">
+<h2 class="section-title">Latest Products</h2>
+<hr class="section-line">
 
-        <!-- ALL 20 PRODUCTS -->
+<!-- FILTERS -->
+<div class="filters">
+    <a href="#all">All</a>
+    <a href="#men">Men</a>
+    <a href="#women">Women</a>
+    <a href="#electronics">Electronics</a>
+    <a href="#jewellery">Jewellery</a>
+</div>
 
-        <div class="card"><img src="./Assests/81fPKd-2AYL._AC_SL1500_.jpg">
-            <div class="card-content">
-                <h3>Product 1</h3>
-                <p>Perfect for daily use</p>
-                <div class="price">$22.99</div>
-                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
-            </div>
-        </div>
+<!-- PRODUCTS -->
+<div class="products" id="productList"></div>
 
-        <div class="card"><img src="./Assests/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg">
-            <div class="card-content">
-                <h3>Product 2</h3>
-                <p>Perfect for daily use</p>
-                <div class="price">$55.99</div>
-                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
-            </div>
-        </div>
+<footer>
+    Made with <span>❤</span> by <a href="#">Sameera</a>
+</footer>
 
-        <div class="card"><img src="./Assests/71li-ujtlUL._AC_UX679_.jpg">
-            <div class="card-content">
-                <h3>Product 3</h3>
-                <p>Perfect for daily use</p>
-                <div class="price">$55.99</div>
-                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
-            </div>
-        </div>
-
-        <div class="card"><img src="./Assests/71YXzeOuslL._AC_UY879_.jpg">
-            <div class="card-content">
-                <h3>Product 4</h3>
-                <p>Perfect for daily use</p>
-                <div class="price">$55.99</div>
-                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
-            </div>
-        </div>
-
-        <div class="card"><img src="./Assests/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg">
-            <div class="card-content">
-                <h3>Product 5</h3>
-                <p>Perfect for daily use</p>
-                <div class="price">$55.99</div>
-                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
-            </div>
-        </div>
-
-        <div class="card"><img src="./Assests/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg">
-            <div class="card-content">
-                <h3>Product 6</h3>
-                <p>Perfect for daily use</p>
-                <div class="price">$55.99</div>
-                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
-            </div>
-        </div>
-
-        <div class="card"><img src="./Assests/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg">
-            <div class="card-content">
-                <h3>Product 7</h3>
-                <p>Perfect for daily use</p>
-                <div class="price">$55.99</div>
-                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
-            </div>
-        </div>
-
-        <div class="card"><img src="./Assests/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg">
-            <div class="card-content">
-                <h3>Product 8</h3>
-                <p>Perfect for daily use</p>
-                <div class="price">$55.99</div>
-                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
-            </div>
-        </div>
-
-        <div class="card"><img src="./Assests/61IBBVJvSDL._AC_SY879_.jpg">
-            <div class="card-content">
-                <h3>Product 9</h3>
-                <p>Perfect for daily use</p>
-                <div class="price">$55.99</div>
-                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
-            </div>
-        </div>
-
-        <div class="card"><img src="./Assests/61U7T1koQqL._AC_SX679_.jpg">
-            <div class="card-content">
-                <h3>Product 10</h3>
-                <p>Perfect for daily use</p>
-                <div class="price">$55.99</div>
-                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
-            </div>
-        </div>
-
-        <div class="card"><img src="./Assests/71kWymZ+c+L._AC_SX679_.jpg">
-            <div class="card-content">
-                <h3>Product 11</h3>
-                <p>Perfect for daily use</p>
-                <div class="price">$55.99</div>
-                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
-            </div>
-        </div>
-
-        <div class="card"><img src="./Assests/61mtL65D4cL._AC_SX679_.jpg">
-            <div class="card-content">
-                <h3>Product 12</h3>
-                <p>Perfect for daily use</p>
-                <div class="price">$55.99</div>
-                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
-            </div>
-        </div>
-
-        <div class="card"><img src="./Assests/81Zt42ioCgL._AC_SX679_.jpg">
-            <div class="card-content">
-                <h3>Product 13</h3>
-                <p>Perfect for daily use</p>
-                <div class="price">$55.99</div>
-                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
-            </div>
-        </div>
-
-        <div class="card"><img src="./Assests/51Y5NI-I5jL._AC_UX679_.jpg">
-            <div class="card-content">
-                <h3>Product 14</h3>
-                <p>Perfect for daily use</p>
-                <div class="price">$55.99</div>
-                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
-            </div>
-        </div>
-
-        <div class="card"><img src="./Assests/81XH0e8fefL._AC_UY879_.jpg">
-            <div class="card-content">
-                <h3>Product 15</h3>
-                <p>Perfect for daily use</p>
-                <div class="price">$55.99</div>
-                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
-            </div>
-        </div>
-
-        <div class="card"><img src="./Assests/71HblAHs5xL._AC_UY879_-2.jpg">
-            <div class="card-content">
-                <h3>Product 16</h3>
-                <p>Perfect for daily use</p>
-                <div class="price">$55.99</div>
-                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
-            </div>
-        </div>
-
-        <div class="card"><img src="./Assests/71z3kpMAYsL._AC_UY879_.jpg">
-            <div class="card-content">
-                <h3>Product 17</h3>
-                <p>Perfect for daily use</p>
-                <div class="price">$55.99</div>
-                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
-            </div>
-        </div>
-
-        <div class="card"><img src="./Assests/51eg55uWmdL._AC_UX679_.jpg">
-            <div class="card-content">
-                <h3>Product 18</h3>
-                <p>Perfect for daily use</p>
-                <div class="price">$55.99</div>
-                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
-            </div>
-        </div>
-
-        <div class="card"><img src="./Assests/61pHAEJ4NML._AC_UX679_.jpg">
-            <div class="card-content">
-                <h3>Product 19</h3>
-                <p>Perfect for daily use</p>
-                <div class="price">$55.99</div>
-                <div><button class="details-btn">Details</button><button class="cart-btn">Add to Cart</button></div>
-            </div>
-        </div>
-
-    </div>
-
-   
-
-    <footer>
-        Made with ❤ by Sameera
-    </footer>
-
+<script src="app.js"></script>
 </body>
 
 </html>

@@ -5,19 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
 
-    <!-- Font Awesome Icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
     <style>
-        /* basic reset */
-        body, h1, p {
+        * {
             margin: 0;
             padding: 0;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
             box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
 
         /* ---------- HEADER ---------- */
@@ -27,12 +23,17 @@
             left: 0;
             width: 100%;
             background: whitesmoke;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 60px;
             border-bottom: 1px solid #ddd;
-            z-index: 10;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .logo {
@@ -51,16 +52,20 @@
             color: black;
         }
 
-        nav a i {
-            margin-right: 5px;
+        .side-nav {
+            display: flex;
+            gap: 8px;
         }
 
         .side-nav a {
+            text-decoration: none; /* underline removed */
             border: 1px solid #000;
-            padding: 8px 10px;
+            padding: 7px 10px;
             border-radius: 4px;
             background-color: whitesmoke;
             color: black;
+            font-size: 13px;
+            white-space: nowrap;
         }
 
         .side-nav a:hover {
@@ -84,8 +89,7 @@
 
         hr {
             width: 60%;
-            margin: auto;
-            margin-bottom: 30px;
+            margin: 0 auto 30px;
             border: none;
             border-top: 1px solid #ccc;
         }
@@ -93,7 +97,7 @@
         form {
             max-width: 420px;
             margin: auto;
-            padding: 0 10px 50px;
+            padding-bottom: 50px;
         }
 
         label {
@@ -148,60 +152,76 @@
             text-decoration: none;
             color: black;
         }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+
+            .side-nav {
+                width: 100%;
+                flex-wrap: wrap;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-    <!-- top navigation -->
-    <header>
+<header>
+    <div class="header-container">
         <div class="logo">Ecommerce</div>
 
         <nav>
             <a href="./home.html">Home</a>
             <a href="./product.html">Product</a>
-            <a href="./About.html">About</a>
-            <a href="./contact.html">Contact Us</a>
+            <a href="./about.html">About</a>
+            <a href="./contact.html">Contact</a>
         </nav>
 
-        <nav class="side-nav">
-            <a href="./login.html"><i class="fa fa-right-to-bracket"></i>Login</a>
-            <a href="./register.html"><i class="fa fa-user-plus"></i>Register</a>
-            <a href="./cart.html">
-                <i class="fa fa-cart-shopping"></i>
-                Cart (<span id="cartCount">0</span>)
-            </a>
-        </nav>
-    </header>
-
-    <!-- main register content -->
-    <div class="register-container">
-        <h1>Register</h1>
-        <hr>
-
-        <form>
-            <label>Full Name</label>
-            <input type="text" placeholder="Enter your name">
-
-            <label>Email address</label>
-            <input type="email" placeholder="name@example.com">
-
-            <label>Password</label>
-            <input type="password" placeholder="password">
-
-            <p>
-                Already have an account?
-                <a href="./login.html">Login</a>
-            </p>
-
-            <button type="submit">Register</button>
-        </form>
+        <div class="side-nav">
+            <a href="./login.html"><i class="fa fa-right-to-bracket"></i> Login</a>
+            <a href="./register.html"><i class="fa fa-user-plus"></i> Register</a>
+            <a href="./cart.html"><i class="fa fa-cart-shopping"></i> Cart (<span id="cartCount">0</span>)</a>
+        </div>
     </div>
+</header>
 
-    <!-- footer -->
-    <footer>
-        Made with <span>❤</span> by <a href="#">Sameera</a>
-    </footer>
+<div class="register-container">
+    <h1>Register</h1>
+    <hr>
+
+    <form>
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your name">
+
+        <label>Email Address</label>
+        <input type="email" placeholder="name@example.com">
+
+        <label>Password</label>
+        <input type="password" placeholder="Password">
+
+        <p>
+            Already have an account?
+            <a href="./login.html">Login</a>
+        </p>
+
+        <button type="submit">Register</button>
+    </form>
+</div>
+
+<footer>
+    Made with <span>❤</span> by <a href="#">Sameera</a>
+</footer>
 
 </body>
 </html>

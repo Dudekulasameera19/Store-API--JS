@@ -17,41 +17,53 @@
             font-family: Arial, sans-serif;
         }
 
+        /* ---------- HEADER ---------- */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
+            background-color: whitesmoke;
+            border-bottom: 1px solid #ddd;
             z-index: 1000;
+        }
 
+        .header-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 60px;
-            border-bottom: 1px solid #ddd;
             flex-wrap: wrap;
-            background-color: whitesmoke;
         }
-
 
         .logo {
             font-size: 22px;
-            font-weight: 600;
+            font-weight: bold;
         }
 
-        nav a {
+        nav.main-nav a {
+            text-decoration: none; /* remove underline */
+            color: gray;
             margin: 0 12px;
-            text-decoration: none;
-            color: #555;
             font-size: 14px;
         }
 
+        nav.main-nav a:hover {
+            color: black;
+        }
+
         .side-nav a {
+            text-decoration: none; /* remove underline */
             border: 1px solid black;
             color: black;
             background-color: whitesmoke;
-            padding: 8px 10px;
+            padding: 7px 10px;
             border-radius: 4px;
+            margin-left: 6px;
+            font-size: 13px;
+            white-space: nowrap;
         }
 
         .side-nav a:hover {
@@ -59,19 +71,10 @@
             color: white;
         }
 
-        .actions button {
-            margin-left: 8px;
-            padding: 6px 14px;
-            border: 1px solid #ccc;
-            background: #fff;
-            cursor: pointer;
-            font-size: 13px;
-            border-radius: 5px;
-        }
-
+        /* ---------- ABOUT US ---------- */
         .about {
+            padding: 180px 80px 60px; /* top padding for fixed header */
             text-align: center;
-            padding: 60px 80px;
         }
 
         .about h2 {
@@ -93,8 +96,9 @@
             margin: auto;
         }
 
+        /* ---------- PRODUCTS ---------- */
         .products-section {
-            padding: 50px;
+            padding: 50px 20px;
             text-align: center;
         }
 
@@ -107,6 +111,8 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 25px;
+            max-width: 1200px;
+            margin: auto;
         }
 
         .card {
@@ -127,6 +133,7 @@
             font-size: 18px;
         }
 
+        /* ---------- FOOTER ---------- */
         footer {
             text-align: center;
             padding: 25px 0;
@@ -138,27 +145,25 @@
         }
 
         footer a {
-            text-decoration: underline;
-            color: #000;
+            text-decoration: none; /* removed underline */
+            color: black;
         }
 
-        /* Laptop */
-        @media (max-width:1024px) {
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 1024px) {
             .products {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
 
-        /* Tablet */
-        @media (max-width:768px) {
+        @media (max-width: 768px) {
             header {
                 flex-wrap: wrap;
-                gap: 15px;
                 padding: 15px 25px;
             }
 
             .about {
-                padding: 40px 30px;
+                padding: 180px 30px 40px;
             }
 
             .products {
@@ -166,28 +171,23 @@
             }
         }
 
-        /* Mobile */
-        @media (max-width:425px) {
-            header {
+        @media (max-width: 425px) {
+            header .header-container {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 10px;
             }
 
-            nav {
+            nav.main-nav {
                 display: flex;
                 flex-direction: column;
                 gap: 8px;
             }
 
-            .actions {
-                width: 100%;
+            .side-nav {
                 display: flex;
                 flex-direction: column;
                 gap: 8px;
-            }
-
-            .actions button {
                 width: 100%;
             }
 
@@ -206,27 +206,28 @@
 
     <!-- HEADER -->
     <header>
-        <div class="logo">Ecommerce</div>
+        <div class="header-container">
+            <div class="logo">Ecommerce</div>
 
-        <nav>
-            <a href="./home.html">Home</a>
-            <a href="./product.html">Products</a>
-            <a href="./About.html">About</a>
-            <a href="./contact.html">Contact</a>
-        </nav>
+            <nav class="main-nav">
+                <a href="./home.html">Home</a>
+                <a href="./product.html">Products</a>
+                <a href="./about.html">About</a>
+                <a href="./contact.html">Contact</a>
+            </nav>
 
-        <nav class="side-nav">
-            <a href="./login.html"><i class="fa fa-right-to-bracket"></i>Login</a>
-            <a href="./register.html"><i class="fa fa-user-plus"></i>Register</a>
-            <a href="./cart.html"><i class="fa fa-cart-shopping"></i>Cart (<span id="cartCount">0</span>)</a>
-        </nav>
+            <div class="side-nav">
+                <a href="./login.html"><i class="fa fa-right-to-bracket"></i>Login</a>
+                <a href="./register.html"><i class="fa fa-user-plus"></i>Register</a>
+                <a href="./cart.html"><i class="fa fa-cart-shopping"></i>Cart (<span id="cartCount">0</span>)</a>
+            </div>
+        </div>
     </header>
 
     <!-- ABOUT US -->
     <section class="about">
         <h2>About Us</h2>
         <hr>
-
         <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, recusandae? Officia voluptatum
             consequatur ipsa repudiandae, blanditiis ipsum nihil a sit harum sint modi molestias illo totam non quos nam
@@ -239,14 +240,6 @@
             Eius consequatur veritatis magni dolores libero blanditiis itaque animi, neque ratione vitae adipisci
             eligendi numquam officiis iste dignissimos ipsa inventore provident rerum amet distinctio dolor impedit
             laborum fugiat. Illo, expedita!
-            Natus quaerat, est nulla porro nesciunt aspernatur odit excepturi at, ipsa blanditiis nisi dolor totam
-            aliquid ab, maiores fugit cum eveniet ducimus enim eius nihil eligendi id saepe accusantium! Qui?
-            Nobis vitae, non vero quia saepe recusandae, aut mollitia, est architecto aliquam impedit eos expedita
-            cumque doloremque ratione totam similique quo ad vel laboriosam aliquid minima suscipit. Consectetur,
-            nostrum tempore.
-            Asperiores dolore, optio a tempore soluta possimus dignissimos quisquam, dolorum, exercitationem quasi ea
-            officiis ad nulla at quos dolorem voluptas. Sapiente tempore voluptatibus beatae, animi temporibus maxime
-            doloremque at a.
         </p>
     </section>
 
