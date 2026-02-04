@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
-
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
@@ -17,7 +15,7 @@
             font-family: Arial, sans-serif;
         }
 
-        /* ================= HEADER ================= */
+        /*HEADER */
         header {
             position: fixed;
             top: 0;
@@ -45,7 +43,7 @@
 
         nav.main-nav a {
             margin: 0 12px;
-            text-decoration: none; /* remove underline */
+            text-decoration: none;
             color: gray;
             font-size: 14px;
         }
@@ -55,7 +53,7 @@
         }
 
         .side-nav a {
-            text-decoration: none; /* remove underline */
+            text-decoration: none;
             border: 1px solid black;
             color: black;
             background-color: whitesmoke;
@@ -71,15 +69,14 @@
             color: white;
         }
 
-        /* ================= CONTACT SECTION ================= */
+        /*CONTACT*/
         .contact {
-            padding: 180px 20px 60px; /* top padding for fixed header */
+            padding: 180px 20px 60px;
             text-align: center;
         }
 
         .contact h2 {
             font-size: 36px;
-            font-weight: 600;
             margin-bottom: 10px;
         }
 
@@ -91,7 +88,7 @@
 
         form {
             max-width: 420px;
-            margin: 0 auto;
+            margin: auto;
             text-align: left;
         }
 
@@ -127,7 +124,7 @@
             cursor: pointer;
         }
 
-        /* ================= FOOTER ================= */
+        /* FOOTER*/
         footer {
             text-align: center;
             padding: 25px 0;
@@ -139,62 +136,73 @@
         }
 
         footer a {
-            text-decoration: none; /* removed underline */
             color: black;
         }
 
-        /* ================= RESPONSIVE ================= */
-        @media (max-width: 1024px) {
-            .contact h2 {
-                font-size: 32px;
+        /* Laptop (1440px – 2560px) */
+        @media (min-width:1440px) and (max-width:2560px) {
+            .contact {
+                padding: 200px 40px 80px;
+            }
+
+            form {
+                max-width: 460px;
             }
         }
 
-        @media (max-width: 768px) {
-            header .header-container {
-                flex-wrap: wrap;
-                gap: 12px;
+        /* Mini-Laptop (769px – 1440px) */
+        @media (min-width:769px) and (max-width:1440px) {
+            .contact h2 {
+                font-size: 34px;
             }
 
-            nav.main-nav {
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                gap: 12px;
+            form {
+                max-width: 420px;
+            }
+        }
+
+        /*  Tablet (426px – 768px) */
+        @media (min-width:426px) and (max-width:768px) {
+            .contact {
+                padding: 160px 20px 50px;
             }
 
+            .contact h2 {
+                font-size: 30px;
+            }
+
+            nav.main-nav,
             .side-nav {
                 width: 100%;
                 display: flex;
                 justify-content: center;
                 gap: 10px;
             }
-
-            .contact {
-                padding: 150px 15px 40px;
-            }
-
-            form {
-                max-width: 380px;
-            }
         }
 
-        @media (max-width: 425px) {
-            header .header-container {
+        /*  Phone (≤ 425px) */
+        @media (max-width:425px) {
+            .header-container {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 10px;
             }
 
             nav.main-nav {
+                display: flex;
                 flex-direction: column;
                 gap: 6px;
             }
 
             .side-nav {
+                display: flex;
                 flex-direction: column;
                 gap: 8px;
                 width: 100%;
+            }
+
+            .contact {
+                padding: 150px 15px 40px;
             }
 
             .contact h2 {
@@ -214,7 +222,6 @@
 
 <body>
 
-    <!-- ================= HEADER ================= -->
     <header>
         <div class="header-container">
             <div class="logo">Ecommerce</div>
@@ -227,14 +234,13 @@
             </nav>
 
             <div class="side-nav">
-                <a href="./login.html"><i class="fa fa-right-to-bracket"></i>Login</a>
-                <a href="./register.html"><i class="fa fa-user-plus"></i>Register</a>
-                <a href="./cart.html"><i class="fa fa-cart-shopping"></i>Cart (<span id="cartCount">0</span>)</a>
+                <a href="./login.html"><i class="fa fa-right-to-bracket"></i> Login</a>
+                <a href="./register.html"><i class="fa fa-user-plus"></i> Register</a>
+                <a href="./cart.html"><i class="fa fa-cart-shopping"></i> Cart (<span id="cartCount">0</span>)</a>
             </div>
         </div>
     </header>
 
-    <!-- ================= CONTACT ================= -->
     <section class="contact">
         <h2>Contact Us</h2>
         <hr>
@@ -253,7 +259,6 @@
         </form>
     </section>
 
-    <!-- ================= FOOTER ================= -->
     <footer>
         Made with <span>❤</span> by <a href="#">Sameera</a>
     </footer>

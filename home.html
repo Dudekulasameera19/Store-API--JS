@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
     <style>
         * {
             margin: 0;
@@ -14,6 +15,11 @@
             font-family: Arial, sans-serif;
         }
 
+        body {
+            background: #fff;
+        }
+
+        /* HEADER*/
         header {
             position: fixed;
             top: 0;
@@ -25,8 +31,7 @@
             align-items: center;
             padding: 20px 60px;
             border-bottom: 1px solid #ddd;
-            flex-wrap: wrap;
-            background-color: whitesmoke;
+            background: whitesmoke;
         }
 
         .logo {
@@ -45,23 +50,21 @@
             color: black;
         }
 
-        nav a i {
-            margin-right: 5px;
-        }
-
         .side-nav a {
             border: 1px solid black;
-            color: black;
-            background-color: whitesmoke;
             padding: 8px 10px;
             border-radius: 4px;
+            color: black;
         }
 
         .side-nav a:hover {
-            background-color: black;
+            background: black;
             color: white;
         }
+
+        /* BANNER*/
         .banner {
+            margin-top: 80px;
             height: 350px;
             background: url("./Assests/main.png\ \(1\).jpg") center / cover no-repeat;
             display: flex;
@@ -71,10 +74,10 @@
         }
 
         .banner-content {
-            padding: 25px;
             max-width: 600px;
         }
 
+        /* SECTION */
         .section-title {
             text-align: center;
             margin: 40px 0 10px;
@@ -87,18 +90,10 @@
             border: 1px solid white;
         }
 
+        /* FILTERS */
         .filters {
             text-align: center;
             margin-bottom: 30px;
-        }
-
-        .filters button {
-            padding: 6px 14px;
-            margin: 5px;
-            border: 1px solid white;
-            background: white;
-            cursor: pointer;
-
         }
 
         .filters a {
@@ -106,39 +101,35 @@
             margin: 5px;
             border: 1px solid black;
             background: whitesmoke;
-            text-decoration: none;
             color: black;
-            display: inline-block;
             border-radius: 4px;
         }
 
         .filters a:hover {
-            background-color: black;
+            background: black;
             color: white;
         }
 
-        /* ===== PRODUCTS ===== */
+        /* PRODUCTS*/
         .products {
             display: grid;
-            grid-template-columns: repeat(3, 300px);
             gap: 25px;
-            padding: 0 60px 50px;
             justify-content: center;
+            padding: 0 60px 50px;
         }
 
         .card {
             border: 1px solid gray;
+            border-radius: 8px;
             display: flex;
             flex-direction: column;
-            border-radius: 8px;
         }
 
         .card img {
-            width: 100%;
             height: 240px;
             object-fit: contain;
-            background: white;
             padding: 10px;
+            background: white;
         }
 
         .card-content {
@@ -167,38 +158,94 @@
             margin: 4px;
         }
 
-        /* ===== FOOTER ===== */
+        /* FOOTER */
         footer {
             text-align: center;
             padding: 25px 0;
             font-size: 14px;
         }
 
-        footer a {
-            color: black;
-        }
-
         footer span {
             color: red;
         }
 
+        footer a {
+            color: black;
+        }
 
-        @media (max-width: 768px) {
+
+        /* Laptop */
+        @media (min-width:1440px) and (max-width:2560px) {
             .products {
-                grid-template-columns: repeat(2, 1fr);
-                padding: 0 20px;
+                grid-template-columns: repeat(4, 300px);
+            }
+
+            .banner {
+                height: 400px;
+            }
+
+            .logo {
+                font-size: 26px;
             }
         }
 
-        @media (max-width: 425px) {
+        /* Mini Laptop */
+        @media (min-width:769px) and (max-width:1439px) {
             .products {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(3, 280px);
             }
 
             header {
-                flex-direction: column;
+                padding: 20px 40px;
+            }
+        }
+
+        /* Tablet */
+        @media (min-width:426px) and (max-width:768px) {
+            header {
+                flex-wrap: wrap;
                 gap: 10px;
+                padding: 15px 25px;
+            }
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 0 20px 40px;
+            }
+
+            .banner {
+                height: 300px;
+                padding-left: 30px;
+            }
+        }
+
+        /* Phone */
+        @media (max-width:425px) {
+            header {
+                flex-direction: column;
                 align-items: flex-start;
+                gap: 10px;
+                padding: 15px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+                padding: 0 15px 40px;
+            }
+
+            .banner {
+                height: 260px;
+                padding-left: 20px;
+            }
+
+            .logo {
+                font-size: 20px;
             }
         }
     </style>
@@ -209,44 +256,46 @@
     <!-- HEADER -->
     <header>
         <h1 class="logo">Ecommerce</h1>
+
         <nav>
             <a href="./home.html">Home</a>
-            <a href="./product.html">product</a>
+            <a href="./product.html">Product</a>
             <a href="./About.html">About</a>
-            <a href="./contact.html">Contact Us</a>
+            <a href="./contact.html">Contact</a>
         </nav>
 
         <nav class="side-nav">
-            <a href="./login.html"><i class="fa fa-right-to-bracket"></i>Login</a>
-            <a href="./register.html"><i class="fa fa-user-plus"></i>Register</a>
-            <a href="./cart.html"><i class="fa fa-cart-shopping"></i>Cart (<span id="cartCount">0</span>)</a>
+            <a href="./login.html"><i class="fa fa-right-to-bracket"></i> Login</a>
+            <a href="./register.html"><i class="fa fa-user-plus"></i> Register</a>
+            <a href="./cart.html">
+                <i class="fa fa-cart-shopping"></i> Cart (<span id="cartCount">0</span>)
+            </a>
         </nav>
     </header>
 
-    <!--  banner text-->
+    <!-- BANNER -->
     <section class="banner">
         <div class="banner-content">
             <h1>New Season Arrivals</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium maxime consectetur asperiores ducimus
-                nesciunt alias.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
     </section>
 
+    <!-- PRODUCTS -->
     <h2 class="section-title">Latest Products</h2>
     <hr class="section-line">
 
-    <!-- FILTERS -->
     <div class="filters">
-        <a href="#all" class="filters1">All</a>
-        <a href="#men" class="filters1">Men</a>
-        <a href="#women" class="filters1">Women</a>
-        <a href="#electronics" class="filters1">Electronics</a>
-        <a href="#jewellery" class="filters1">Jewellery</a>
+        <a href="#all">All</a>
+        <a href="#men">Men</a>
+        <a href="#women">Women</a>
+        <a href="#electronics">Electronics</a>
+        <a href="#jewellery">Jewellery</a>
     </div>
 
-    <!-- PRODUCTS -->
     <div class="products" id="productList"></div>
 
+    <!-- FOOTER -->
     <footer>
         Made with <span>❤</span> by <a href="#">Sameera</a>
     </footer>

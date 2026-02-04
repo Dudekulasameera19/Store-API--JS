@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Cart</title>
-
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -38,6 +38,7 @@
             margin: auto;
             display: none;
             gap: 30px;
+            display: flex;
         }
 
         .cart-left {
@@ -84,43 +85,146 @@
             margin-top: 20px;
             cursor: pointer;
         }
+
+        footer {
+            text-align: center;
+            padding: 25px 0;
+            font-size: 14px;
+        }
+
+        footer span {
+            color: red;
+        }
+
+        footer a {
+            color: black;
+        }
+
+     
+        /* Laptop (1440px – 2560px) */
+
+        @media (min-width:1440px) and (max-width:2560px) {
+            body {
+                padding: 140px 80px 60px;
+            }
+
+            .cart-wrapper {
+                gap: 40px;
+            }
+
+            .cart-item img {
+                width: 90px;
+                height: 90px;
+            }
+        }
+
+      
+        /* Mini-Laptop (769px – 1440px) */
+        @media (min-width:769px) and (max-width:1440px) {
+            body {
+                padding: 120px 40px 40px;
+            }
+
+            .cart-wrapper {
+                gap: 30px;
+            }
+        }
+
+        /*  Tablet (426px – 768px) */
+   
+        @media (min-width:426px) and (max-width:768px) {
+            body {
+                padding: 110px 20px 30px;
+            }
+
+            .cart-wrapper {
+                flex-direction: column;
+            }
+
+            .cart-left,
+            .cart-right {
+                width: 100%;
+            }
+
+            .cart-item {
+                gap: 15px;
+            }
+
+            .cart-item img {
+                width: 70px;
+                height: 70px;
+            }
+        }
+
+        /* Phone (≤ 425px) */
+        @media (max-width:425px) {
+            body {
+                padding: 100px 15px 20px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            .cart-wrapper {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cart-item img {
+                width: 100%;
+                height: 120px;
+            }
+
+            .checkout-btn {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-<h1>Cart</h1>
+    <h1>Cart</h1>
 
-<!-- EMPTY CART -->
-<div class="empty-cart" id="emptyCart">
-    <h2>Your Cart is Empty</h2>
-    <a href="home.html" class="continue-btn">← Continue Shopping</a>
-</div>
-
-<!-- CART WITH ITEMS -->
-<div class="cart-wrapper" id="cartWrapper">
-
-    <div class="cart-left">
-        <h3>Item List</h3>
-        <div id="cartItems"></div>
+    <div class="empty-cart" id="emptyCart">
+        <h2>Your Cart is Empty</h2>
+        <a href="home.html" class="continue-btn">← Continue Shopping</a>
     </div>
 
-    <div class="cart-right">
-        <h3>Order Summary</h3>
+    <div class="cart-wrapper" id="cartWrapper">
 
-        <p>Products (<span id="itemCount">0</span>)</p>
-        <p>Total: <strong id="productsTotal">$0</strong></p>
+        <div class="cart-left">
+            <h3>Item List</h3>
+            <div id="cartItems"></div>
+        </div>
 
-        <hr>
+        <div class="cart-right">
+            <h3>Order Summary</h3>
 
-        <h3>Grand Total</h3>
-        <h2 id="grandTotal">$0</h2>
+            <p>Products (<span id="itemCount">0</span>)</p>
+            <p>Total: <strong id="productsTotal">$0</strong></p>
 
-        <button class="checkout-btn">Go to Checkout</button>
+            <hr>
+
+            <h3>Grand Total</h3>
+            <h2 id="grandTotal">$0</h2>
+
+            <button class="checkout-btn">Go to Checkout</button>
+        </div>
+
     </div>
 
-</div>
+    <footer>
+        Made with <span>❤</span> by <a href="#">Sameera</a>
+    </footer>
 
-<script src="cart.js"></script>
+    <script src="cart.js"></script>
 </body>
+
 </html>

@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
-
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
@@ -17,7 +15,7 @@
             font-family: Arial, sans-serif;
         }
 
-        /* ---------- HEADER ---------- */
+        /* HEADER */
         header {
             position: fixed;
             top: 0;
@@ -44,7 +42,7 @@
         }
 
         nav.main-nav a {
-            text-decoration: none; /* remove underline */
+            text-decoration: none;
             color: gray;
             margin: 0 12px;
             font-size: 14px;
@@ -55,7 +53,7 @@
         }
 
         .side-nav a {
-            text-decoration: none; /* remove underline */
+            text-decoration: none;
             border: 1px solid black;
             color: black;
             background-color: whitesmoke;
@@ -71,9 +69,9 @@
             color: white;
         }
 
-        /* ---------- ABOUT US ---------- */
+        /* ABOUT*/
         .about {
-            padding: 180px 80px 60px; /* top padding for fixed header */
+            padding: 180px 80px 60px;
             text-align: center;
         }
 
@@ -96,7 +94,7 @@
             margin: auto;
         }
 
-        /* ---------- PRODUCTS ---------- */
+        /*PRODUCTS*/
         .products-section {
             padding: 50px 20px;
             text-align: center;
@@ -133,7 +131,7 @@
             font-size: 18px;
         }
 
-        /* ---------- FOOTER ---------- */
+        /* FOOTER*/
         footer {
             text-align: center;
             padding: 25px 0;
@@ -145,34 +143,49 @@
         }
 
         footer a {
-            text-decoration: none; /* removed underline */
             color: black;
         }
 
-        /* ---------- RESPONSIVE ---------- */
-        @media (max-width: 1024px) {
+        /*  Laptop (1440px – 2560px) */
+        @media (min-width:1440px) and (max-width:2560px) {
+            .about {
+                padding: 200px 120px 80px;
+            }
+
             .products {
-                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
             }
         }
-
-        @media (max-width: 768px) {
-            header {
-                flex-wrap: wrap;
-                padding: 15px 25px;
+        /* Mini-Laptop (769px – 1440px) */
+        @media (min-width:769px) and (max-width:1440px) {
+            .products {
+                grid-template-columns: repeat(4, 1fr);
             }
 
             .about {
-                padding: 180px 30px 40px;
-            }
-
-            .products {
-                grid-template-columns: repeat(2, 1fr);
+                padding: 180px 60px 60px;
             }
         }
 
-        @media (max-width: 425px) {
-            header .header-container {
+        /*  Tablet (426px – 768px) */
+  
+        @media (min-width:426px) and (max-width:768px) {
+            .about {
+                padding: 170px 30px 40px;
+            }
+
+            .products {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .about h2 {
+                font-size: 30px;
+            }
+        }
+
+        /* Phone (≤ 425px) */
+        @media (max-width:425px) {
+            .header-container {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 10px;
@@ -191,8 +204,12 @@
                 width: 100%;
             }
 
+            .about {
+                padding: 160px 20px 30px;
+            }
+
             .about h2 {
-                font-size: 28px;
+                font-size: 26px;
             }
 
             .products {
@@ -204,7 +221,6 @@
 
 <body>
 
-    <!-- HEADER -->
     <header>
         <div class="header-container">
             <div class="logo">Ecommerce</div>
@@ -217,14 +233,13 @@
             </nav>
 
             <div class="side-nav">
-                <a href="./login.html"><i class="fa fa-right-to-bracket"></i>Login</a>
-                <a href="./register.html"><i class="fa fa-user-plus"></i>Register</a>
-                <a href="./cart.html"><i class="fa fa-cart-shopping"></i>Cart (<span id="cartCount">0</span>)</a>
+                <a href="./login.html"><i class="fa fa-right-to-bracket"></i> Login</a>
+                <a href="./register.html"><i class="fa fa-user-plus"></i> Register</a>
+                <a href="./cart.html"><i class="fa fa-cart-shopping"></i> Cart (<span id="cartCount">0</span>)</a>
             </div>
         </div>
     </header>
 
-    <!-- ABOUT US -->
     <section class="about">
         <h2>About Us</h2>
         <hr>
@@ -232,45 +247,35 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, recusandae? Officia voluptatum
             consequatur ipsa repudiandae, blanditiis ipsum nihil a sit harum sint modi molestias illo totam non quos nam
             omnis.
-            Itaque quo delectus, minus fugit molestiae ea nesciunt iure quis ratione doloremque, explicabo praesentium
-            officiis, atque nisi cum est? Natus excepturi veritatis placeat id architecto doloribus dolor nisi ipsam
-            eius.
-            Magni quos, ratione porro explicabo cupiditate accusamus alias ipsum voluptatum eos eius quis sequi facilis
-            nihil numquam fuga labore unde eaque temporibus iure ut sint soluta! Ullam ipsum nobis repellendus.
-            Eius consequatur veritatis magni dolores libero blanditiis itaque animi, neque ratione vitae adipisci
-            eligendi numquam officiis iste dignissimos ipsa inventore provident rerum amet distinctio dolor impedit
-            laborum fugiat. Illo, expedita!
         </p>
     </section>
 
-    <!-- PRODUCTS -->
     <section class="products-section">
         <h2>Our Products</h2>
 
         <div class="products">
             <div class="card">
-                <img src="./Assests/pexels-photo-1--298863.jpeg" alt="">
+                <img src="./Assests/pexels-photo-1--298863.jpeg">
                 <h3>Men's Clothing</h3>
             </div>
 
             <div class="card">
-                <img src="./Assests/pexels-photo-2--7679720.jpeg" alt="">
+                <img src="./Assests/pexels-photo-2--7679720.jpeg">
                 <h3>Women's Clothing</h3>
             </div>
 
             <div class="card">
-                <img src="./Assests/pexels-photo-3--1927259.webp" alt="">
+                <img src="./Assests/pexels-photo-3--1927259.webp">
                 <h3>Jewelry</h3>
             </div>
 
             <div class="card">
-                <img src="./Assests/pexels-photo-4--356056.jpeg" alt="">
+                <img src="./Assests/pexels-photo-4--356056.jpeg">
                 <h3>Electronics</h3>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         Made with <span>❤</span> by <a href="#">Sameera</a>
     </footer>
